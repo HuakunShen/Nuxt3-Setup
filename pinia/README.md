@@ -1,42 +1,47 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 + Pinia
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+1. `yarn add pinia` + `yarn add @pinia/nuxt`
+2. Edit [`nuxt.config.js`](./nuxt.config.ts)
+   ```js
+   export default defineNuxtConfig({
+     modules: ['@pinia/nuxt'],
+   });
+   ```
+3. Create [`store/filters.js`](./store/filters.js) (any filename works)
 
-## Setup
+   Sample Code
 
-Make sure to install the dependencies:
+   ```js
+   import { defineStore } from 'pinia';
 
-```bash
-# yarn
-yarn install
+   export const useFiltersStore = defineStore({
+     id: 'filter-store',
+     state: () => {
+       return {
+         filtersList: ['youtube', 'twitch'],
+       };
+     },
+     actions: {},
+     getters: {
+       filtersListGetter: (state) => state.filtersList,
+     },
+   });
+   ```
 
-# npm
-npm install
+4. In any page file, import pinia store and access the store content, see [index.vue](./pages/index.vue)
 
-# pnpm
-pnpm install --shamefully-hoist
-```
+   ```js
+   import { storeToRefs } from 'pinia';
+   import { useFiltersStore } from '~/store/filters';
 
-## Development Server
+   const store = useFiltersStore();
 
-Start the development server on http://localhost:3000
+   const { filtersList } = storeToRefs(store);
+   const filtersListGetter = store.filtersListGetter;
+   const filtersComputed = computed(() => store.$state.filtersList);
+   ```
 
-```bash
-npm run dev
-```
+## Reference
 
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment) for more information.
+- [Nuxt 3 and Pinia](https://dev.to/codybontecou/nuxt-3-and-pinia-473k)
+  - This doesn't fully work, I changed some code.
