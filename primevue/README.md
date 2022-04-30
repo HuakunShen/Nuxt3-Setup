@@ -1,42 +1,36 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 + PrimeVUE
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+1. `npm install primeicons --save` and `npm install primevue --save`
+2. Create `plugins/primevue.js`, fill in
 
-## Setup
+   ```js
+   import { defineNuxtPlugin } from '#app';
+   import PrimeVue from 'primevue/config';
+   import Button from 'primevue/button';
+   import Toast from 'primevue/toast';
+   import ToastService from 'primevue/toastservice';
 
-Make sure to install the dependencies:
+   export default defineNuxtPlugin((nuxtApp) => {
+     nuxtApp.vueApp.use(PrimeVue, { ripple: true });
+     nuxtApp.vueApp.use(ToastService);
+     nuxtApp.vueApp.component('Button', Button);
+     nuxtApp.vueApp.component('Toast', Toast);
+     //other components that you need
+   });
+   ```
 
-```bash
-# yarn
-yarn install
+3. In `nuxt.config.js`, add
 
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment) for more information.
+   ```js
+   export default defineNuxtConfig({
+     css: [
+       'primevue/resources/themes/saga-blue/theme.css',
+       'primevue/resources/primevue.css',
+       'primeicons/primeicons.css',
+     ],
+     build: {
+       transpile: ['primevue'],
+     },
+   });
+   ```
+4. I also added a Prime Vue Toast example with layout, so that any pages/components can make toasts.

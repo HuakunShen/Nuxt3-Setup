@@ -8,5 +8,9 @@
   },
   "devDependencies": {
     "nuxt": "3.0.0-rc.1"
+  },
+  "dependencies": {
+    "primeicons": "^5.0.0",
+    "primevue": "^3.12.6"
   }
 }
