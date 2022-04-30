@@ -1,42 +1,21 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 + Tailwind
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+Follow [nuxt/tailwind](https://tailwindcss.nuxtjs.org/setup)
 
-## Setup
+1. `yarn add --dev @nuxtjs/tailwindcss`
+2. ```js
+   import { defineNuxtConfig } from 'nuxt';
 
-Make sure to install the dependencies:
+   // https://v3.nuxtjs.org/api/configuration/nuxt.config
+   export default defineNuxtConfig({
+     modules: ['@nuxtjs/tailwindcss'],
+   });
+   ```
 
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment) for more information.
+3. `npx tailwindcss init`
+4. Create `~/assets/css/tailwind.css`
+   ```css
+   @tailwind base;
+   @tailwind components;
+   @tailwind utilities;
+   ```
