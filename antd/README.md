@@ -1,42 +1,27 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 + Ant Design Vue
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+1. `npm i --save ant-design-vue`
+2. Add `css:['ant-design-vue/dist/antd.css']` to `nuxt.config.js`
+3. Create `plugins/antd.js`, fill in the following configuration
 
-## Setup
+   ### Import All Components
 
-Make sure to install the dependencies:
+   ```js
+   import Antd from 'ant-design-vue/lib';
+   export default defineNuxtPlugin((nuxtApp) => {
+     nuxtApp.vueApp.use(Antd);
+   });
+   ```
 
-```bash
-# yarn
-yarn install
+   ### Import Individual Components
 
-# npm
-npm install
+   ```js
+   import { Breadcrumb, BreadcrumbItem, Button } from 'ant-design-vue/lib';
+   import { defineNuxtPlugin } from '#app';
 
-# pnpm
-pnpm install --shamefully-hoist
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment) for more information.
+   export default defineNuxtPlugin((nuxtApp) => {
+     nuxtApp.vueApp.use(Button);
+     nuxtApp.vueApp.use(Breadcrumb);
+     nuxtApp.vueApp.use(BreadcrumbItem);
+   });
+   ```
