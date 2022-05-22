@@ -10,6 +10,7 @@
     "nuxt": "3.0.0-rc.3"
   },
   "dependencies": {
-    "element-plus": "^2.2.0"
+    "@element-plus/icons-vue": "^1.1.4",
+    "element-plus": "^2.2.1"
   }
 }
