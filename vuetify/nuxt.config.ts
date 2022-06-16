@@ -1,5 +1,4 @@
 import { defineNuxtConfig } from "nuxt";
-const { VuetifyPlugin } = require("webpack-plugin-vuetify");
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
