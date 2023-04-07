@@ -9,6 +9,17 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "^3.3.3"
+    "@nuxtjs/device": "^3.1.0",
+    "@nuxtjs/eslint-module": "^4.0.2",
+    "@nuxtjs/i18n": "^8.0.0-beta.10",
+    "@nuxtjs/tailwindcss": "^6.6.5",
+    "eslint": "^8.37.0",
+    "nuxt": "^3.3.3",
+    "nuxt-icon": "^0.3.3"
+  },
+  "dependencies": {
+    "@nuxtjs/apollo": "^4.0.1-rc.5",
+    "@nuxtjs/robots": "^3.0.0",
+    "graphql-tag": "^2.12.6"
   }
 }
