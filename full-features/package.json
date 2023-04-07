@@ -9,6 +9,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@nuxtjs/apollo": "^5.0.0-alpha.6",
     "@nuxtjs/device": "^3.1.0",
     "@nuxtjs/eslint-module": "^4.0.2",
     "@nuxtjs/i18n": "^8.0.0-beta.10",
@@ -18,8 +19,10 @@
     "nuxt-icon": "^0.3.3"
   },
   "dependencies": {
-    "@nuxtjs/apollo": "^4.0.1-rc.5",
+    "@nuxtjs/color-mode": "^3.2.0",
     "@nuxtjs/robots": "^3.0.0",
-    "graphql-tag": "^2.12.6"
+    "@pinia/nuxt": "^0.4.7",
+    "graphql-tag": "^2.12.6",
+    "pinia": "^2.0.33"
   }
 }
